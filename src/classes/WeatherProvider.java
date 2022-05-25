@@ -34,12 +34,12 @@ public class WeatherProvider
 		{
 			for (int j = 0;j<res.length;j++)
 			{
-				if (res[i] > res[j])
+				if (res[i] > res[j] && i != j && res[i] > max)
 					max = res[i];
-				else
-					max = res[j];
+				// else
+				// 	max = res[j];
 			}
-			break;
+			// break;
 		}
 		for (int i = 0;i<res.length;i++)
 			if (res[i] == max)
