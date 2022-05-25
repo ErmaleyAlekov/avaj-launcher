@@ -1,7 +1,8 @@
 package src.classes;
 
-public class WeatherTower 
+public class WeatherTower extends Tower
 {
-    public String getWeather(Coordinates obj) {return "";}
-    public void changeWeather() {}
+    public String getWeather(Coordinates obj) {WeatherProvider weatherProvider = WeatherProvider.getProvider();
+		return weatherProvider.getCurrentWeather(obj);}
+    public void changeWeather() {conditionChanged();}
 }
