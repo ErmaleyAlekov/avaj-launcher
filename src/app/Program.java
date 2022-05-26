@@ -33,27 +33,29 @@ public class Program
     public static void parsList(List<String> lst)
     {
         if (lst.size() == 0)
-            throw new EmptyFileException();
+            throw new ErrorFileFormatException();
         try {
             int count = Integer.parseInt(lst.get(0));
-            // System.out.println(count);
             for (int i =0;i<count;i++)
             {
                 WeatherTower weatherTower = new WeatherTower();
                 writeToFile("----------------------------------------------------------");
                 ArrayList<Flyable> flyables = new ArrayList<Flyable>();
-                // System.out.println(lst.size());
                 for (int j= 1;j<lst.size();j++)
                 {
-                    // System.out.println(lst.get(j));
                     ArrayList<String> lst2 = parsStr(lst.get(j));
-                    // System.out.printf("lst2: %d\n", lst2.size());
+                    if (!lst2.get(0).equals("Baloon") && lst2.get(0).equals("Helicopter") && lst2.get(0).equals("JetPlane"))
+                        throw new ErrorFileFormatException();
+                    if (Integer.parseInt(lst2.get(2)) <= 0 || Integer.parseInt(lst2.get(3)) <= 0 || Integer.parseInt(lst2.get(4)) <= 0)
+                        throw new ErrorFileFormatException();
                     if (lst2.size() == 5)
                     {
                         flyables.add(AircraftFactory.newAircraft(lst2.get(0), lst2.get(1), 
                             Integer.parseInt(lst2.get(2)), Integer.parseInt(lst2.get(3)),
                             Integer.parseInt(lst2.get(4))));
                     }
+                    else
+                        throw new ErrorFileFormatException();
                 }
                 for (Flyable f : flyables)
                     f.registerTower(weatherTower);

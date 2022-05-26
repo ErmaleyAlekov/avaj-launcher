@@ -12,7 +12,7 @@ e = exceptions/
 	$(JC) $(JFLAGS) $*.java
 CLASSES = $S$aProgram.java $S$cAircraft.java $S$cAircraftFactory.java $S$cBaloon.java $S$cCoordinates.java \
 	$S$cFlyable.java $S$cHelicopter.java $S$cJetPlane.java $S$cTower.java $S$cWeatherProvider.java $S$cWeatherTower.java \
-	$S$eEmptyFileException.java $S$eInputOutputException.java $S$eWrongNumberOfArguments.java
+	$S$eErrorFileFormatException.java $S$eInputOutputException.java $S$eWrongNumberOfArguments.java
 
 all: classes
 
