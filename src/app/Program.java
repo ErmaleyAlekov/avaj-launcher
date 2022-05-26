@@ -40,6 +40,8 @@ public class Program
         } catch (Exception e) {
             lst = decrypt(list);
         }
+        if (lst.size() == 1)
+            throw new ErrorFileFormatException();
         count = Integer.parseInt(lst.get(0));
         try {
             for (int i =0;i<count;i++)
@@ -69,8 +71,7 @@ public class Program
                 writeToFile("----------------------------------------------------------");
             }
         } catch (Exception e) {
-            System.out.println("Exception!");
-            System.err.println(e.getMessage());
+            throw new ErrorFileFormatException();
         }
     }
 
@@ -110,6 +111,7 @@ public class Program
         {
             for (int i=0;i<list.size();i++)
             {
+                int check = 0;
                 for (int j=0;j<lst.size();j++)
                 {
                     if (lst.get(j).indexOf(list.get(i)) != -1)
@@ -127,8 +129,11 @@ public class Program
                             }  
                         }
                         res.add(buff2);
+                        check = 1;
                     }
                 }
+                if (check == 0)
+                    throw new ErrorFileFormatException();
             }
             return res;
         }
