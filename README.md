@@ -1,12 +1,12 @@
 # avaj-launcher
 Используй следующие команды
 
-make - собрать проект.
+./compile.sh - собрать проект.
 
-make re - пересобрать проект.
+./start.sh scenario.txt - запуск первого сценария.
 
-make start - запуск первого сценария.
+./start.sh scenario2.txt - запуск второго сценария.
 
-make start2 - запуск второго сценария.
+./clean.sh - удалить класс файлы и simulation.txt.
 
-make clean - удалить класс файлы.
+./encrupt.sh scenario.txt - хешировать данные в указанном файле.

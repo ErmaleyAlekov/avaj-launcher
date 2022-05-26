@@ -30,12 +30,18 @@ public class Program
         }
     }
 
-    public static void parsList(List<String> lst)
+    public static void parsList(List<String> list) throws IOException
     {
-        if (lst.size() == 0)
+        if (list.size() == 0)
             throw new ErrorFileFormatException();
+        int count = 0; List<String> lst = list;
         try {
-            int count = Integer.parseInt(lst.get(0));
+            count = Integer.parseInt(lst.get(0));
+        } catch (Exception e) {
+            lst = decrypt(list);
+        }
+        count = Integer.parseInt(lst.get(0));
+        try {
             for (int i =0;i<count;i++)
             {
                 WeatherTower weatherTower = new WeatherTower();
@@ -63,6 +69,7 @@ public class Program
                 writeToFile("----------------------------------------------------------");
             }
         } catch (Exception e) {
+            System.out.println("Exception!");
             System.err.println(e.getMessage());
         }
     }
@@ -93,5 +100,39 @@ public class Program
         lines.add(str);
         Path file = Paths.get(System.getProperty("user.dir")+"/simulation.txt");
         Files.write(file,lines,StandardCharsets.UTF_8,StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+    }
+    public static List<String> decrypt(List<String> list) throws IOException
+    {
+        Path path = Paths.get(System.getProperty("user.dir")+"/src/classes/Base.java");
+        List<String> lst = Files.readAllLines(path);
+        List<String> res = new ArrayList<String>();
+        if (list.size() <= lst.size())
+        {
+            for (int i=0;i<list.size();i++)
+            {
+                for (int j=0;j<lst.size();j++)
+                {
+                    if (lst.get(j).indexOf(list.get(i)) != -1)
+                    {
+                        ArrayList<String> buff = parsStr(lst.get(j));
+                        String buff2 = "";
+                        for (int k=0;k<buff.size();k++)
+                        {
+                            if (k != 0 && k != buff.size() -1)
+                            {
+                                if (k == buff.size() -2)
+                                    buff2 += buff.get(k);
+                                else
+                                    buff2 += buff.get(k) + " ";
+                            }  
+                        }
+                        res.add(buff2);
+                    }
+                }
+            }
+            return res;
+        }
+        else
+            throw new ErrorFileFormatException();
     }
 }
