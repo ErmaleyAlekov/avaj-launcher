@@ -1,4 +1,5 @@
 #!/bin/sh
 find * -name "*.class" > classes.txt
-cat classes.txt | rm -rf
+rm -rf $(cat classes.txt)
 rm -rf classes.txt
+rm -rf simulation.txt
