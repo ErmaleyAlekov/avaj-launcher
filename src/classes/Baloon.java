@@ -24,7 +24,7 @@ public class Baloon extends Aircraft implements Flyable
 				height += 4;
                 try {
                     Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-						+ "УРА СЕГОДНЯ СОЛНЕЧНО!");
+						+ "IT'S SUNNY TODAY!");
                 } catch (IOException e) {
                     System.err.println(e.getMessage());
                 }
@@ -35,11 +35,11 @@ public class Baloon extends Aircraft implements Flyable
                 try {
                     height -= 5;
                     Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-                            + "УРА БЕЗПЛАТНЫЙ ДУШ!");
+                            + "YES! FREE SHOWER!");
                     if (height <= 0)
                     {
                         Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-                            + "ИДУ НА ПОСАДКУ!");w.unregister(this);w=null;return;
+                            + "I'M GOING TO LAND!");w.unregister(this);w=null;return;
                     }
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -51,11 +51,11 @@ public class Baloon extends Aircraft implements Flyable
                 try {
                     height -= 15;
                     Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-                            + "НАДО ОДЕТЬСЯ ТЕПЛЕЕ!");
+                            + "SHOULD DRESS WARMER!");
                     if (height <= 0)
                     {
                         Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-                            + "ИДУ НА ПОСАДКУ!");w.unregister(this);w=null;return;
+                            + "I'M GOING TO LAND!");w.unregister(this);w=null;return;
                     }
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -67,11 +67,11 @@ public class Baloon extends Aircraft implements Flyable
                 try {
                     height -= 3;
                     Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-                            + "НИЧЕГО НЕ ВИДНО!");
+                            + "I CAN NOT SEE ANYTHING!");
                     if (height <= 0)
                     {
                         Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-                            + "ИДУ НА ПОСАДКУ!");w.unregister(this);w=null;return;
+                            + "I'M GOING TO LAND!");w.unregister(this);w=null;return;
                     }
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -84,7 +84,7 @@ public class Baloon extends Aircraft implements Flyable
         {
             try {
                 Program.writeToFile("Baloon#" + getName() + "(" + getId() + "): "
-            + "ИДУ НА ПОСАДКУ!");w.unregister(this);w= null;return;
+            + "I'M GOING TO LAND!");w.unregister(this);w= null;return;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

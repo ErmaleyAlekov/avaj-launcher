@@ -22,7 +22,7 @@ public class JetPlane extends Aircraft implements Flyable
                     latitude += 10;
                     height += 2;
                     Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-                            + "УРА СЕГОДНЯ СОЛНЕЧНО!");
+                            + "IT'S SUNNY TODAY!");
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -33,7 +33,7 @@ public class JetPlane extends Aircraft implements Flyable
                 try {
                     latitude += 5;
                     Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-                            + "УРА БЕЗПЛАТНЫЙ ДУШ!");
+                            + "YES! FREE SHOWER!!");
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -43,11 +43,11 @@ public class JetPlane extends Aircraft implements Flyable
                 try {
                     height -= 7;
                     Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-                            + "НАДО ОДЕТЬСЯ ТЕПЛЕЕ!");
+                            + "SHOULD DRESS WARMER!");
                     if (height <= 0)
                     {
                         Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-                            + "ИДУ НА ПОСАДКУ!");w.unregister(this);w=null;return;
+                            + "I'M GOING TO LAND!");w.unregister(this);w=null;return;
                     }
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -59,7 +59,7 @@ public class JetPlane extends Aircraft implements Flyable
                 try {
                     latitude += 1;
                     Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-                            + "НИЧЕГО НЕ ВИДНО!");
+                            + "I CAN NOT SEE ANYTHING!");
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -71,7 +71,7 @@ public class JetPlane extends Aircraft implements Flyable
         {
             try {
                 Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-            + "ИДУ НА ПОСАДКУ!");w.unregister(this);w= null;return;
+            + "I'M GOING TO LAND!");w.unregister(this);w= null;return;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
