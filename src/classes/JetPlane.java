@@ -47,7 +47,7 @@ public class JetPlane extends Aircraft implements Flyable
                     if (height <= 0)
                     {
                         Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-                            + "I'M GOING TO LAND!");w.unregister(this);w=null;return;
+                            + "LANDING!");w.unregister(this);w=null;return;
                     }
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -71,7 +71,7 @@ public class JetPlane extends Aircraft implements Flyable
         {
             try {
                 Program.writeToFile("JetPlane#" + getName() + "(" + getId() + "): "
-            + "I'M GOING TO LAND!");w.unregister(this);w= null;return;
+            + "LANDING!");w.unregister(this);w= null;return;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

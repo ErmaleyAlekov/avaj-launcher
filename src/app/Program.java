@@ -43,30 +43,31 @@ public class Program
         if (lst.size() == 1)
             throw new ErrorFileFormatException();
         count = Integer.parseInt(lst.get(0));
-        try {
+        try 
+        {
+            WeatherTower weatherTower = new WeatherTower();
+            ArrayList<Flyable> flyables = new ArrayList<Flyable>();
+            for (int j= 1;j<lst.size();j++)
+            {
+                ArrayList<String> lst2 = parsStr(lst.get(j));
+                if (!lst2.get(0).equals("Baloon") && lst2.get(0).equals("Helicopter") && lst2.get(0).equals("JetPlane"))
+                    throw new ErrorFileFormatException();
+                if (Integer.parseInt(lst2.get(2)) <= 0 || Integer.parseInt(lst2.get(3)) <= 0 || Integer.parseInt(lst2.get(4)) <= 0)
+                    throw new ErrorFileFormatException();
+                if (lst2.size() == 5)
+                {
+                    flyables.add(AircraftFactory.newAircraft(lst2.get(0), lst2.get(1), 
+                        Integer.parseInt(lst2.get(2)), Integer.parseInt(lst2.get(3)),
+                        Integer.parseInt(lst2.get(4))));
+                }
+                else
+                    throw new ErrorFileFormatException();
+            }
+            for (Flyable f : flyables)
+                    f.registerTower(weatherTower);
             for (int i =0;i<count;i++)
             {
-                WeatherTower weatherTower = new WeatherTower();
                 writeToFile("----------------------------------------------------------");
-                ArrayList<Flyable> flyables = new ArrayList<Flyable>();
-                for (int j= 1;j<lst.size();j++)
-                {
-                    ArrayList<String> lst2 = parsStr(lst.get(j));
-                    if (!lst2.get(0).equals("Baloon") && lst2.get(0).equals("Helicopter") && lst2.get(0).equals("JetPlane"))
-                        throw new ErrorFileFormatException();
-                    if (Integer.parseInt(lst2.get(2)) <= 0 || Integer.parseInt(lst2.get(3)) <= 0 || Integer.parseInt(lst2.get(4)) <= 0)
-                        throw new ErrorFileFormatException();
-                    if (lst2.size() == 5)
-                    {
-                        flyables.add(AircraftFactory.newAircraft(lst2.get(0), lst2.get(1), 
-                            Integer.parseInt(lst2.get(2)), Integer.parseInt(lst2.get(3)),
-                            Integer.parseInt(lst2.get(4))));
-                    }
-                    else
-                        throw new ErrorFileFormatException();
-                }
-                for (Flyable f : flyables)
-                    f.registerTower(weatherTower);
                 weatherTower.changeWeather();
                 writeToFile("----------------------------------------------------------");
             }

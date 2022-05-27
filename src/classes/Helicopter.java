@@ -22,7 +22,7 @@ public class Helicopter extends Aircraft implements Flyable
                     longitude += 10;
                     height += 2;
                     Program.writeToFile("Helicopter#" + getName() + "(" + getId() + "): "
-                            + "IT'S SUNNY TODAY!");
+                            + "LANDING!");
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
                 }
@@ -47,7 +47,7 @@ public class Helicopter extends Aircraft implements Flyable
                     if (height <= 0)
                     {
                         Program.writeToFile("Helicopter#" + getName() + "(" + getId() + "): "
-                            + "I'M GOING TO LAND!");w.unregister(this);w=null;return;
+                            + "LANDING!");w.unregister(this);w=null;return;
                     }
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -71,7 +71,7 @@ public class Helicopter extends Aircraft implements Flyable
         {
             try {
                 Program.writeToFile("Helicopter#" + getName() + "(" + getId() + "): "
-            + "I'M GOING TO LAND!");w.unregister(this);w=null;return;
+            + "LANDING!");w.unregister(this);w=null;return;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

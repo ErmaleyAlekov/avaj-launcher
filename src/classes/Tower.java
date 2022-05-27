@@ -5,13 +5,15 @@ import src.app.Program;
 public class Tower 
 {
     private ArrayList<Flyable> lst = new ArrayList<Flyable>();
-
+    private Aircraft aircraft;
     public void register(Flyable obj) 
     {
         try {
-            Aircraft aircraft = Aircraft.class.cast(obj);
+            aircraft = Aircraft.class.cast(obj);
             String str = "Tower says: ";
             lst.add(obj);
+            for (int i =0;i<lst.size() - 1;i++)
+                aircraft.id = aircraft.nextId();
             if (obj instanceof Baloon)
                 str +="Baloon";
             if (obj instanceof JetPlane)
@@ -27,7 +29,7 @@ public class Tower
     {
         try {
             Aircraft aircraft = Aircraft.class.cast(obj);
-            lst.add(obj);
+            lst.remove(obj);
             String str = "Tower says: ";
             if (obj instanceof Baloon)
                 str +="Baloon";
